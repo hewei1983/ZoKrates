@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                withDockerContainer('kyroy/zokrates-test:1') {
+                withDockerContainer('kyroy/zokrates-test') {
                     sh 'RUSTFLAGS="-D warnings" cargo build'
                 }
             }
@@ -33,7 +33,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                withDockerContainer('kyroy/zokrates-test:1') {
+                withDockerContainer('kyroy/zokrates-test') {
                     sh 'RUSTFLAGS="-D warnings" cargo test'
                 }
             }
@@ -44,7 +44,7 @@ pipeline {
                 expression { env.BRANCH_NAME == 'master' || env.BRANCH_NAME == 'develop' }
             }
             steps {
-                withDockerContainer('kyroy/zokrates-test:1') {
+                withDockerContainer('kyroy/zokrates-test') {
                     sh 'RUSTFLAGS="-D warnings" cargo test -- --ignored'
                 }
             }
