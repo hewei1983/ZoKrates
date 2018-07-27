@@ -1,4 +1,5 @@
-FROM ubuntu:14.04
+# FROM ubuntu:14.04
+FROM golang:1.10
 # test ZoKRate building...
 
 MAINTAINER JacobEberhardt <jacob.eberhardt@tu-berlin.de>, Dennis Kuhnert <mail@kyroy.com>
@@ -37,3 +38,8 @@ COPY . ZoKrates
 
 RUN cd ZoKrates \
     && cargo build --release
+    
+#-------Extra Added----------------    
+    
+RUN apt-get install -y vim \
+    && apt-get install -y tree
