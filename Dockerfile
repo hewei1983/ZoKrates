@@ -1,4 +1,5 @@
 FROM ubuntu:14.04
+# test ZoKRate building...
 
 MAINTAINER JacobEberhardt <jacob.eberhardt@tu-berlin.de>, Dennis Kuhnert <mail@kyroy.com>
 
