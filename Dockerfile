@@ -45,7 +45,11 @@ RUN apt-get update && apt-get install -y vim \
     && apt-get install -y tree
     
 COPY vimrc /root/.vimrc
-    
+#-------solidity syntax highlightning----
+RUN mkdir -p /root/.vim/bundle \
+    && git clone https://github.com/tomlion/vim-solidity.git /root/.vim/bundle/vim-solidity \
+    && cp -r /root/.vim/bundle/vim-solidity/* /root/.vim/
+
 # RUN mkdir -p /root/multiSigWallet \
 #  && cd /root/multiSigWallet \
 #  && git clone https://github.com/gnosis/MultiSigWallet.git
