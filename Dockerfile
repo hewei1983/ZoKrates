@@ -52,8 +52,9 @@ RUN apt-get update && apt-get install -y vim \
 RUN mkdir -p /root/go-setup \
     && cd /root/go-setup/ 
     # && wget https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz \
-ADD wget https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
-RUN tar -xvf go1.8.3.linux-amd64.tar.gz \
+ADD https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz /root/go-setup/
+RUN cd /root/go-setup \
+    && tar -xvf go1.8.3.linux-amd64.tar.gz \
     && mv go /usr/local \
     && mkdir /go
   
@@ -61,8 +62,9 @@ ENV GOROOT /usr/local/go
 ENV GOPATH /go
   
 # RUN wget https://storage.googleapis.com/golang/go1.3.3.src.tar.gz \
-ADD https://storage.googleapis.com/golang/go1.3.3.src.tar.gz 
-RUN tar -zxvf go1.3.3.src.tar.gz \
+ADD https://storage.googleapis.com/golang/go1.3.3.src.tar.gz /root/go-setup/ 
+RUN cd /root/go-setup \
+    && tar -zxvf go1.3.3.src.tar.gz \
     && cp -r go/misc/vim/syntax/ go/misc/vim/ftplugin/ go/misc/vim/indent/ go/misc/vim/compiler/ go/misc/vim/ftdetect/ /usr/share/vim/vim74/ 
 
 WORKDIR /root/
