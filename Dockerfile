@@ -57,10 +57,13 @@ RUN cd /root/go-setup \
     && tar -xvf go1.8.3.linux-amd64.tar.gz \
     && mv go /usr/local \
     && mkdir /go
-  
+
+#set golang environment variables
 ENV GOROOT /usr/local/go  
 ENV GOPATH /go
-  
+ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
+
+# set go vim syntax highlightning  
 # RUN wget https://storage.googleapis.com/golang/go1.3.3.src.tar.gz \
 ADD https://storage.googleapis.com/golang/go1.3.3.src.tar.gz /root/go-setup/ 
 RUN cd /root/go-setup \
