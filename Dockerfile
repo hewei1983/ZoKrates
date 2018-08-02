@@ -63,7 +63,8 @@ RUN cd /root/go-setup \
 #set golang environment variables
 ENV GOROOT /usr/local/go  
 ENV GOPATH /go
-ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
+#ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
+ENV PATH $GOPATH/bin:$GOROOT/bin:/root/ZoKrates/target/release:$PATH
 
 # set go vim syntax highlightning  
 # RUN wget https://storage.googleapis.com/golang/go1.3.3.src.tar.gz \
