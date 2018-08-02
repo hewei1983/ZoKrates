@@ -44,6 +44,8 @@ RUN cd ZoKrates \
 RUN apt-get update && apt-get install -y vim \
     && apt-get install -y tree
     
+COPY vimrc /root/.vimrc
+    
 # RUN mkdir -p /root/multiSigWallet \
 #  && cd /root/multiSigWallet \
 #  && git clone https://github.com/gnosis/MultiSigWallet.git
